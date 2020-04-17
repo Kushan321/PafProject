@@ -7,9 +7,9 @@ public class Hospital {
 
 	private String name;
 	private String address;
-	private String charge;
+	private int charge;
 	private String phonenumber;
-	private String roomcount;
+	private int roomcount;
 	
 	
 	public String getName() {
@@ -24,22 +24,24 @@ public class Hospital {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCharge() {
-		return charge;
-	}
-	public void setCharge(String charge) {
-		this.charge = charge;
-	}
+	
 	public String getPhonenumber() {
 		return phonenumber;
 	}
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
-	public String getRoomcount() {
+
+	public int getCharge() {
+		return charge;
+	}
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+	public int getRoomcount() {
 		return roomcount;
 	}
-	public void setRoomcount(String roomcount) {
+	public void setRoomcount(int roomcount) {
 		this.roomcount = roomcount;
 	}
 	@Override
@@ -47,6 +49,15 @@ public class Hospital {
 		return "Hospital [name=" + name + ", address=" + address + ", charge=" + charge + ", phonenumber=" + phonenumber
 				+ ", roomcount=" + roomcount + "]";
 	}
+	public void setHospitalid(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getHospitalid() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	
