@@ -61,8 +61,8 @@ public class Payment {
 		if (con == null)
 		{return "Error while connecting to the database for reading."; }
 		// Prepare the html table to be displayed
-		output = "<table border=\"1\"><tr><th>PaymentID</th><th>PatientID</th><th>AppointmentID</th><th>Date</th><th>Amount</th></tr>";
-		String query = "select paymentid,patientid,appointmentid,date,amount from payment";
+		output = "<table border=\"1\"><tr><th>PaymentID</th><th>PatientID</th><th>AppointmentID</th><th>Date</th><th>CardExpiryDate</th><th>Amount</th></tr>";
+		String query = "select paymentid,patientid,appointmentid,date,expirydate,amount from payment";
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
 		// iterate through the rows in the result set
@@ -72,6 +72,7 @@ public class Payment {
 		String PatientID = rs.getString("patientid");
 		String AppointmentID = rs.getString("appointmentid");
 		String Date = rs.getString("date");
+		String ExpiryDate = rs.getString("expirydate");
 		String Amount = Double.toString(rs.getDouble("amount"));
 
 		// Add into the html table
@@ -79,6 +80,7 @@ public class Payment {
 		output += "<td>" + PatientID + "</td>";
 		output += "<td>" + AppointmentID + "</td>";
 		output += "<td>" + Date + "</td>";
+		output += "<td>" + ExpiryDate + "</td>";
 		output += "<td>" + Amount + "</td>";
 		// buttons
 		//output += "<td><input name=\"btnUpdate\" type=\"button\" value=\"Update\" class=\"btn btn-secondary\"></td>"
@@ -120,6 +122,33 @@ public class Payment {
 		catch (Exception e)
 		{
 		output = "Error while deleting the item.";
+		System.err.println(e.getMessage());
+		}
+		return output;
+		}
+		
+		public String updatePayment(String ID, String Exdate)
+		{
+		String output = "";
+		try
+		{
+		Connection con = connect();
+		if (con == null)
+		{return "Error while connecting to the database for updating."; }
+		// create a prepared statement
+		String query = "UPDATE payment SET expirydate=? WHERE paymentid =?";
+		PreparedStatement preparedStmt = con.prepareStatement(query);
+		// binding values
+		preparedStmt.setString(1, Exdate);
+		preparedStmt.setInt(2, Integer.parseInt(ID));
+		// execute the statement
+		preparedStmt.execute();
+		con.close();
+		output = "Updated successfully";
+		}
+		catch (Exception e)
+		{
+		output = "Error while updating the item.";
 		System.err.println(e.getMessage());
 		}
 		return output;

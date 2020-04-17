@@ -7,6 +7,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,9 @@ import javax.ws.rs.core.MediaType;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import model.kushan.PaymentManagement.Payment;
 
@@ -63,6 +67,21 @@ public String deleteItem(String paymentData)
 return output;
 }
 
+
+@PUT
+@Path("/")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.TEXT_PLAIN)
+public String updateItem(String paymentData)
+{
+//Convert the input string to a JSON object
+ JsonObject paymentObject = new JsonParser().parse(paymentData).getAsJsonObject();
+//Read the values from the JSON object
+ String ID = paymentObject.get("paymentid ").getAsString();
+ String Exdate = paymentObject.get("expirydate").getAsString();
+ String output = payobj.updatePayment(ID, Exdate);
+return output;
+}
 
 }
 
