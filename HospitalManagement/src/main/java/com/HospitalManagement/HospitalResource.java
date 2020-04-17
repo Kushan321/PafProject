@@ -18,11 +18,11 @@ public class HospitalResource {
 	
 	
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
-	public List<Hospital> getHospitals() {
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public List<Hospital> viewHospital() {
 	
  
-		return repo.getHospitals();
+		return repo.viewHospital();
 
 	}
 
@@ -32,7 +32,7 @@ public class HospitalResource {
 	public Hospital getHospital(@PathParam("hospitalid") int hospitalid) {
 		
 		
-		return repo.getHospital(hospitalid);
+		return repo.viewHospital(hospitalid);
 		
 	}
 	
