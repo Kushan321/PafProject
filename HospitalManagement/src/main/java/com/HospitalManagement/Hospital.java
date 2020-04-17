@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Hospital {
 
+	private int hospitalid;
 	private String name;
 	private String address;
 	private int charge;
@@ -44,19 +45,21 @@ public class Hospital {
 	public void setRoomcount(int roomcount) {
 		this.roomcount = roomcount;
 	}
+	public int getHospitalid() {
+		return hospitalid;
+	}
+	public void setHospitalid(int hospitalid) {
+		this.hospitalid = hospitalid;
+	}
 	@Override
 	public String toString() {
-		return "Hospital [name=" + name + ", address=" + address + ", charge=" + charge + ", phonenumber=" + phonenumber
-				+ ", roomcount=" + roomcount + "]";
+		return "Hospital [hospitalid=" + hospitalid + ", name=" + name + ", address=" + address + ", charge=" + charge
+				+ ", phonenumber=" + phonenumber + ", roomcount=" + roomcount + "]";
 	}
-	public void setHospitalid(int int1) {
-		// TODO Auto-generated method stub
-		
-	}
-	public int getHospitalid() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
+	
+	
+	
 
 	
 	

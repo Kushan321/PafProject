@@ -2,16 +2,84 @@ package com.HospitalManagement;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class HospitalRepository {
 	
-	Connection con = null;
-	
-	
+	List<Hospital> hospitals;
 	
 	public HospitalRepository() {
+		
+		hospitals = new ArrayList<>();
+		
+		Hospital hos1 = new Hospital();
+		hos1.setHospitalid(1);
+		hos1.setName("Cancer Hospital");
+		hos1.setAddress("Colombo");
+		hos1.setCharge(1000);
+		hos1.setPhonenumber("0111234567");
+		hos1.setRoomcount(125); 
+		
+
+		Hospital hos2 = new Hospital();
+		hos1.setHospitalid(2);
+		hos2.setName("Cancer Hospital");
+		hos2.setAddress("Kandy");
+		hos2.setCharge(2000);
+		hos2.setPhonenumber("0111269867");
+		hos2.setRoomcount(90);  
+		
+		hospitals.add(hos1);
+		hospitals.add(hos2);
+		
+	}
+	
+	
+	public List<Hospital> getHospitals()
+	{
+		
+		return hospitals;
+	}
+	
+	public Hospital getHospital(int hospitalid) {
+		
+		Hospital hos1 =null;
+		
+		for(Hospital hos : hospitals)
+		{
+			if(hos.getHospitalid()==hospitalid)
+				return hos;
+			
+		}
+		
+		
+		return null;
+	}
+
+
+	public void create(Hospital hos1) {
+		// TODO Auto-generated method stub
+		hospitals.add(hos1);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*	
+	
+	Connection con = null;
+	
+   public HospitalRepository() {
 		
 		String url ="jdbc:mysql://localhost:3307/testpaf";
 		String username = "root";
@@ -80,6 +148,6 @@ public class HospitalRepository {
 		}
 	}
 	
-	
+	*/
 
 }
