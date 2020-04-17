@@ -29,7 +29,7 @@ public class HospitalResource {
 	@GET
 	@Path("/hospital/{hospitalid}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	public Hospital getHospital(@PathParam("hospitalid") int hospitalid) {
+	public Hospital viewHospital(@PathParam("hospitalid") int hospitalid) {
 		
 		
 		return repo.viewHospital(hospitalid);
@@ -49,6 +49,25 @@ public class HospitalResource {
 		
 	}
 	
+	@PUT
+	@Path("/hospital")
+	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Hospital updateHospital(Hospital hos1) {
+		
+		System.out.println(hos1);
+		
+		if(repo.viewHospital(hos1.getHospitalid()).getHospitalid()==0) 
+		{
+			repo.create(hos1);
+		}
+		else 
+		{
+			repo.update(hos1);
+		}
+		
+		return hos1;
+		
+	}
 	
 	 
 

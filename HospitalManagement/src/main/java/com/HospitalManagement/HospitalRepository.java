@@ -115,6 +115,33 @@ public class HospitalRepository{
 		}
 	}
 
+	
+	
+	public void update(Hospital hos1) {
+		
+		String sql = "update hospital set name=?, address=?, charge=?, phonenumber=?, roomcount=? where hospitalid=?"; 
+		
+		
+		try {
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setInt(6, hos1.getHospitalid());
+			st.setString(1, hos1.getName());
+			st.setString(2, hos1.getAddress());
+			st.setInt(3, hos1.getCharge());
+			st.setString(4, hos1.getPhonenumber());
+			st.setInt(5, hos1.getRoomcount());
+			
+			st.executeUpdate();
+				 
+			}
+		 
+		catch(Exception e) {
+			
+			System.out.println(e);
+		}
+	}
 
 
 
