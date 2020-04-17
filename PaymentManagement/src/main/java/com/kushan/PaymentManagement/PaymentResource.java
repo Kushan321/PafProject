@@ -3,12 +3,17 @@ package com.kushan.PaymentManagement;
 
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
 
 import model.kushan.PaymentManagement.Payment;
 
@@ -41,6 +46,23 @@ public String insertPayment(@FormParam("patientid") int patientid,
  String output = payobj.insertPayment(patientid, appointmentid,date, cardtype, cardnumber, expirydate, pinnumber, amount);
 return output;
 }
+
+
+@DELETE
+@Path("/")
+@Consumes(MediaType.APPLICATION_XML)
+@Produces(MediaType.TEXT_PLAIN)
+public String deleteItem(String paymentData)
+{
+//Convert the input string to an XML document
+ Document doc = Jsoup.parse(paymentData, "", Parser.xmlParser());
+
+//Read the value from the element <itemID>
+ String PaymentID= doc.select("paymentid").text();
+ String output = payobj.deletePayment(PaymentID);
+return output;
+}
+
 
 }
 
