@@ -39,6 +39,7 @@ public class HospitalResource {
 	
 	@POST
 	@Path("/hospital")
+	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Hospital createHospital(Hospital hos1) {
 		
 		System.out.println(hos1);
