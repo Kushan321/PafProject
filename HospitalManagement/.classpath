@@ -31,5 +31,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/java/jsoup-1.13.1.jar"/>
 	<classpathentry kind="lib" path="src/main/java/com/HospitalManagement/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="src/main/java/com/HospitalManagement/mysql-connector-java-8.0.11.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

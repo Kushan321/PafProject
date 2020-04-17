@@ -1,5 +1,8 @@
 package com.HospitalManagement;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Hospital {
 
 	private String name;
@@ -7,6 +10,8 @@ public class Hospital {
 	private String charge;
 	private String phonenumber;
 	private String roomcount;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -36,6 +41,11 @@ public class Hospital {
 	}
 	public void setRoomcount(String roomcount) {
 		this.roomcount = roomcount;
+	}
+	@Override
+	public String toString() {
+		return "Hospital [name=" + name + ", address=" + address + ", charge=" + charge + ", phonenumber=" + phonenumber
+				+ ", roomcount=" + roomcount + "]";
 	}
 	
 	
