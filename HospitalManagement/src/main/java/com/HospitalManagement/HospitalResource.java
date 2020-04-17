@@ -26,6 +26,17 @@ public class HospitalResource {
 
 	}
 
+	@GET
+	@Path("/hospital/{hospitalid}")
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Hospital getHospital(@PathParam("hospitalid") int hospitalid) {
+		
+		
+		return repo.getHospital(hospitalid);
+		
+	}
+	
+	
 	@POST
 	@Path("/hospital")
 	public Hospital createHospital(Hospital hos1) {

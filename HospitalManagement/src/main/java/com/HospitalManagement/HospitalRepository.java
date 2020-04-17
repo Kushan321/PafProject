@@ -25,7 +25,7 @@ public class HospitalRepository {
 		
 
 		Hospital hos2 = new Hospital();
-		hos1.setHospitalid(2);
+		hos2.setHospitalid(2);
 		hos2.setName("Cancer Hospital");
 		hos2.setAddress("Kandy");
 		hos2.setCharge(2000);
