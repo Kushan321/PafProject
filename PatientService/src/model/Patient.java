@@ -52,10 +52,10 @@ public class Patient {
 			preparedStmt.execute();
 			con.close();
 
-			output = "Data added successfully";
+			output = "Patient added successfully";
 			// System.out.println(output);
 		} catch (Exception e) {
-			output = "Error while adding";
+			output = "Error while adding the patient";
 			System.err.println(e.getMessage());
 		}
 
@@ -112,7 +112,7 @@ public class Patient {
 			output += "</table>";
 			System.out.println("Data Read Successfully");
 		} catch (Exception e) {
-			output = "Error while reading the data.";
+			output = "Error while reading the data!";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -136,10 +136,10 @@ public class Patient {
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
-			output = "Deleted successfully";
+			output = "Patient Deleted successfully";
 
 		} catch (Exception e) {
-			output = "Error while removing the patient ";
+			output = "Error while removing the patient!";
 			System.err.println(e.getMessage());
 		}
 
@@ -152,7 +152,7 @@ public class Patient {
 		try {
 			Connection con = connect();
 			if (con == null) {
-				return "Error while connecting to the database for updating.";
+				return "Error while connecting to the database for updating!";
 			}
 
 			// create a prepared statement
@@ -170,11 +170,11 @@ public class Patient {
 			preparedStmt.execute();
 			con.close();
 
-			output = "Updated successfully";
+			output = "Patient Updated successfully";
 			System.out.println(output);
 		} catch (Exception e) {
 
-			output = "Error while updating the patient.";
+			output = "Error while updating the patient!";
 			System.err.println(e.getMessage());
 
 		}
