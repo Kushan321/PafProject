@@ -143,6 +143,29 @@ public class HospitalRepository{
 		}
 	}
 
+	public void delete(int hospitalid) {
+
+		String sql = "delete from hospital where hospitalid=?"; 
+		
+		
+		try {
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setInt(1, hospitalid);
+			st.executeUpdate();
+				 
+			}
+		 
+		catch(Exception e) {
+			
+			System.out.println(e);
+		}
+		
+		
+	}
+
+
 
 
 	

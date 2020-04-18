@@ -69,6 +69,21 @@ public class HospitalResource {
 		
 	}
 	
-	 
+	
+	@DELETE
+	@Path("/hospital/{hospitalid}")
+	public Hospital deleteHospital(@PathParam("hospitalid") int hospitalid) {
+		
+		Hospital hos = repo.viewHospital(hospitalid);
+		
+		if(hos.getHospitalid()!=0)
+		repo.delete(hospitalid);
+		
+		return hos;
+		
+		
+	}
+	
+	
 
 }
