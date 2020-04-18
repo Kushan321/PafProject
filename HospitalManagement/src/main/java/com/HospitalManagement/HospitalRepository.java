@@ -114,8 +114,6 @@ public class HospitalRepository{
 			System.out.println(e);
 		}
 	}
-
-	
 	
 	public void update(Hospital hos1) {
 		
