@@ -213,12 +213,7 @@ public class Patient {
 				String pNumber = set.getString("phonenumber");
 				String Address = set.getString("address");
 
-				output += "<tr><th>" + ID + "</th>";
-				output += "<th>" + pName + "</th>";
-				output += "<th>" + pwd + "</th>";
-				output += "<th>" + Email + "</th>";
-				output += "<th>" + pNumber + "</th>";
-				output += "<th>" + Address + "</th>";
+				
 
 				output += "<td><input type=\"button\" name=\"btnUpdate\" value=\"update\"></td>"
 						+ "<td><form method=\"post\" action=\"patient.jsp\">"
