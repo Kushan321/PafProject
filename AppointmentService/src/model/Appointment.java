@@ -49,6 +49,7 @@ public class Appointment {
 	// preparedStmt.setDouble(4, Double.parseDouble(price));
 	 preparedStmt.setString(6, hospitalName); 
 	 preparedStmt.setString(7, date); 
+	 preparedStmt.setString(7, date); 
 	
 	 // execute the statement
 	 preparedStmt.execute();
