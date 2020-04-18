@@ -198,7 +198,7 @@ public class Patient {
 					+ "<tr><th>Patient Name</th><th>Password</th><th>Email</th><th>Phone Number</th><th>Address</th>"
 					+ "<th>Update</th><th>Remove</th></tr>";
 
-			String query = "SELECT * FROM patient WHERE name LIKE ?";
+			String query = "select * from patient where name like ?";
 			PreparedStatement prepareStatement = con.prepareStatement(query);
 			prepareStatement.setString(1, search);
 
